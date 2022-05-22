@@ -4,6 +4,14 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-  m_Scenes: []
+  m_Scenes:
+  - enabled: 0
+    path: Assets/Scenes/SampleScene.unity
+    guid: 9fc0d4010bbf28b4594072e72b8655ab
+  - enabled: 1
+    path: Assets/UnityXRContent/MARS/Templates/Basic/Tabletop.unity
+    guid: 71543e660ee284ecfa1aea01d6f386bd
   m_configObjects:
+    UnityEditor.XR.ARCore.ARCoreSettings: {fileID: 11400000, guid: b2f372e13bcfb8f489fc67a4c4cc15aa, type: 2}
+    com.unity.mars-ar-foundation-providers.xr_subsystem_settings: {fileID: 11400000, guid: e53c3038aa2f5a34384e6afc278d81c2, type: 2}
     com.unity.xr.management.loader_settings: {fileID: 11400000, guid: c8c66ec9a5fc826489312bd74ccbd257, type: 2}
