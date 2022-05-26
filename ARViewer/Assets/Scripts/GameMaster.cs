@@ -12,6 +12,7 @@ public class GameMaster : MonoBehaviour
 	private Vector2 touchPos;
 
     public List<GameObject> furniturePieces;
+    public List<GameObject> spawnedFurniturePieces;	
 	public int currentPiece;
 
 	// Update is called once per frame
@@ -47,20 +48,19 @@ public class GameMaster : MonoBehaviour
 		{
 			Ray ray = Camera.main.ScreenPointToRay(pressPosition);
 
-
 			if (Physics.Raycast(ray, out RaycastHit hit))
 			{
 				// Check if the mouse was clicked over a UI element
 				if (!EventSystem.current.IsPointerOverGameObject())
 				{
-					if (furniturePieces[currentPiece] == null)
+					if (spawnedFurniturePieces[currentPiece] == null)
 					{
-						furniturePieces[currentPiece] = Instantiate(objectToSpawn, hit.point, Quaternion.identity);
+						spawnedFurniturePieces[currentPiece] = Instantiate(furniturePieces[currentPiece], hit.point, Quaternion.identity);
 						//spawnedObject = Instantiate(objectToSpawn, ray.direction, Quaternion.identity);
 					}
 					else if (hit.collider.tag == "Plane")
 					{
-						furniturePieces[currentPiece].transform.position = hit.point;
+						spawnedFurniturePieces[currentPiece].transform.position = hit.point;
 					}
 				}
 			}
@@ -70,6 +70,11 @@ public class GameMaster : MonoBehaviour
 	// Start is called before the first frame update
 	void Start()
 	{
-		furniturePieces = new List<GameObject>();
-	}
+		Debug.Log(furniturePieces.Count);
+		spawnedFurniturePieces = new List<GameObject>(furniturePieces.Count);
+        for (int i = 0; i < spawnedFurniturePieces.Capacity; i++)
+        {
+			spawnedFurniturePieces.Add(null);
+        }
+    }
 }
