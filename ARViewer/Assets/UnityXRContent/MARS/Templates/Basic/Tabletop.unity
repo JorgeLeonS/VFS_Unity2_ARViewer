@@ -1982,7 +1982,7 @@ MonoBehaviour:
   target: {fileID: 0}
   objectToSpawn: {fileID: 826173577740632880, guid: e042aeeee4ca0b1418aa37f1e737db9c, type: 3}
   furniturePieces:
-  - {fileID: 2288701005883058944, guid: abc6856661537304f97b3a8ae629767e, type: 3}
+  - {fileID: 6481794465687637315, guid: d8417e869a6c11a4b92cec96a3c7bf61, type: 3}
   - {fileID: 826173577740632880, guid: e042aeeee4ca0b1418aa37f1e737db9c, type: 3}
   spawnedFurniturePieces: []
   currentPiece: 0
