@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
 
 public class GameMaster : MonoBehaviour
 {
@@ -26,10 +27,6 @@ public class GameMaster : MonoBehaviour
 
 			pressPosition = touch.position;
 			isPressing = true;
-
-			//Instantiate(objectToSpawn, pressPosition, Quaternion.identity);
-
-			Debug.Log("Press pos:"+pressPosition);
 		}
 #endif
 		// This *will* work on mobile, but gives you the *average* touch, which
@@ -41,29 +38,30 @@ public class GameMaster : MonoBehaviour
 		{
 			pressPosition = Input.mousePosition;
 			isPressing = true;
-
-
-			Debug.Log("Press pos:" + pressPosition);
-
 		}
 #endif
 
 		if (isPressing)
 		{
 			Ray ray = Camera.main.ScreenPointToRay(pressPosition);
-			Debug.Log("Ray:" + ray);
+
 
 			if (Physics.Raycast(ray, out RaycastHit hit))
 			{
-				if (spawnedObject == null)
+				// Check if the mouse was clicked over a UI element
+
+				if (!EventSystem.current.IsPointerOverGameObject())
 				{
-					spawnedObject = Instantiate(objectToSpawn, ray.direction, Quaternion.identity);
+					if (spawnedObject == null)
+					{
+						spawnedObject = Instantiate(objectToSpawn, hit.point, Quaternion.identity);
+						//spawnedObject = Instantiate(objectToSpawn, ray.direction, Quaternion.identity);
+					}
+					else if (hit.collider.tag == "Plane")
+					{
+						spawnedObject.transform.position = hit.point;
+					}
 				}
-				else
-				{
-					spawnedObject.transform.position = ray.direction;
-				}
-				//target.position = hit.point;
 			}
 		}
 	}

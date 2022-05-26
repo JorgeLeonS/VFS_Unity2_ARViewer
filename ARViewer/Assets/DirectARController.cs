@@ -31,15 +31,6 @@ public class DirectARController : MonoBehaviour
 
     Vector3 m_GroundTarget = Vector3.zero;
 
-    Vector3 m_JumpStart = Vector3.zero;
-    Vector3 m_JumpTarget = Vector3.zero;
-    float m_JumpDuration = 0.0f;
-    float m_JumpTimer = 0.0f;
-    float m_JumpHeight = 0.0f;
-    float m_JumpAngle = 0.0f;
-
-    float m_CurrentSpeed = 0.0f;
-
     // Start is called before the first frame update
     void Start()
     {
@@ -68,61 +59,53 @@ public class DirectARController : MonoBehaviour
             var destination = s_RaycastResults[0].point;
 
             var toDestination = (destination - currentPosition);
-            var distToDest = toDestination.sqrMagnitude;
-            var motionDirection = toDestination.normalized;
 
-            bool successfulPath = true;
+            //bool successfulPath = true;
 
-            while (distToDest > k_MinMoveDistance * k_MinMoveDistance)
-            {
-                currentPosition += motionDirection * k_MinMoveDistance;
+            m_GroundTarget = GetPlanarTapLocation(Input.mousePosition, transform.position.y);
 
-                // Move along ground in direction of motion in min distance steps
-                if (Physics.Raycast(currentPosition + (Vector3.up * k_GroundLookHeight), Vector3.down, out rayCastHit, k_JumpTestDistance, m_InteractionLayer))
-                {
-                    currentPosition = rayCastHit.point;
-                    toDestination = (destination - currentPosition);
-                    distToDest = toDestination.sqrMagnitude;
-                }
-                else
-                {
-                    successfulPath = false;
-                    break;
-                }
-
-                // If XZ distance is near 0 but Y still varies, path is not successful either
-                var xzOffset = toDestination;
-                xzOffset.y = 0;
-                if (xzOffset.sqrMagnitude <= k_MinMoveDistance * k_MinMoveDistance && toDestination.y > k_GroundLookHeight)
-                {
-                    successfulPath = false;
-                    break;
-                }
-            }
-
-            // If we can't make it, initiate a jump.
-            //if (!successfulPath)
+            //while (distToDest > k_MinMoveDistance * k_MinMoveDistance)
             //{
-            //    m_State = State.JumpStart;
-            //    m_JumpTarget = destination;
+            //    currentPosition += motionDirection * k_MinMoveDistance;
+
+            // Move along ground in direction of motion in min distance steps
+            if (Physics.Raycast(currentPosition + (Vector3.up * k_GroundLookHeight), Vector3.down, out rayCastHit, m_InteractionLayer))
+            {
+                currentPosition = rayCastHit.point;
+                toDestination = (destination - currentPosition);
+            }
+            //else
+            //{
+            //    successfulPath = false;
+            //    //break;
             //}
 
-            // Otherwise, do nothing and normal motion starts next frame
+            // If XZ distance is near 0 but Y still varies, path is not successful either
+            var xzOffset = toDestination;
+            xzOffset.y = 0;
+            //if (xzOffset.sqrMagnitude <= k_MinMoveDistance * k_MinMoveDistance && toDestination.y > k_GroundLookHeight)
+            //{
+            //    successfulPath = false;
+            //    //break;
+            //}
         }
-        else
-        {
-            // If we're holding input accelerate to the destination, if we're not, slow down
+
+        // Otherwise, do nothing and normal motion starts next frame
+    //}
+        //else
+        //{
+            //    // If we're holding input accelerate to the destination, if we're not, slow down
             if (Input.GetMouseButton(0))
             {
-                // Raycast from the touch/mouse point to find what, if anything, we have tapped on
+                //        // Raycast from the touch/mouse point to find what, if anything, we have tapped on
                 m_GroundTarget = GetPlanarTapLocation(Input.mousePosition, transform.position.y);
-                m_CurrentSpeed = Mathf.Clamp(m_CurrentSpeed + (0.5f * m_Acceleration * Time.deltaTime), 0.0f, m_Speed);
+                //        //m_CurrentSpeed = Mathf.Clamp(m_CurrentSpeed + (0.5f * Time.deltaTime), 0.0f, m_Speed);
             }
-            else
-            {
-                if (m_CurrentSpeed > 0)
-                    m_CurrentSpeed = Mathf.Clamp(m_CurrentSpeed - (0.5f * m_Deceleration * Time.deltaTime), 0.0f, m_Speed);
-            }
+            //    else
+            //    {
+            //        //if (m_CurrentSpeed > 0)
+            //        //    m_CurrentSpeed = Mathf.Clamp(m_CurrentSpeed - (0.5f * m_Deceleration * Time.deltaTime), 0.0f, m_Speed);
+            //    }
 
 
             // Move towards ray hit
@@ -133,14 +116,15 @@ public class DirectARController : MonoBehaviour
             //    break;
                 
             toHit.Normalize();
-            transform.forward = toHit;
+            //transform.forward = toHit;
 
-            var newDestination = transform.position + (toHit * Time.deltaTime * m_CurrentSpeed);
+            //var newDestination = transform.position + (toHit * Time.deltaTime * m_CurrentSpeed);
+            var newDestination = transform.position + (toHit);
 
             // Ensure the destination is valid
             if (Physics.Raycast(newDestination + (Vector3.up * k_GroundLookHeight), Vector3.down, out rayCastHit, k_GroundLockDistance, m_InteractionLayer))
                 transform.position = rayCastHit.point;
-        }
+        //}
     }
 
     static int CompareRayHitsByDistance(RaycastHit x, RaycastHit y)
