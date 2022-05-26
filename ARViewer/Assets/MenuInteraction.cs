@@ -4,11 +4,9 @@ using UnityEngine;
 
 public class MenuInteraction : MonoBehaviour
 {
-    //public List<GameObject> furniture;
     // Start is called before the first frame update
     void Start()
     {
-        //furniture = new List<GameObject>();
     }
 
     // Update is called once per frame

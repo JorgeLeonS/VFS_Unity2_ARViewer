@@ -56,7 +56,6 @@ public class GameMaster : MonoBehaviour
 					if (spawnedFurniturePieces[currentPiece] == null)
 					{
 						spawnedFurniturePieces[currentPiece] = Instantiate(furniturePieces[currentPiece], hit.point, Quaternion.identity);
-						//spawnedObject = Instantiate(objectToSpawn, ray.direction, Quaternion.identity);
 					}
 					else if (hit.collider.tag == "Plane")
 					{
