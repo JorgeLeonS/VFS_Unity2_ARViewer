@@ -4,10 +4,11 @@ using UnityEngine;
 
 public class MenuInteraction : MonoBehaviour
 {
+    public List<GameObject> furniture;
     // Start is called before the first frame update
     void Start()
     {
-        
+        furniture = new List<GameObject>();
     }
 
     // Update is called once per frame
@@ -16,8 +17,14 @@ public class MenuInteraction : MonoBehaviour
         
     }
 
-    public void Clicked()
+    public void GetCube()
     {
-        Debug.Log("Helllo");
+        Debug.Log("Cube");
+        FindObjectOfType<GameMaster>().currentPiece = 1;
+    }
+    public void GetCone()
+    {
+        Debug.Log("Cone");
+        FindObjectOfType<GameMaster>().currentPiece = 0;
     }
 }
