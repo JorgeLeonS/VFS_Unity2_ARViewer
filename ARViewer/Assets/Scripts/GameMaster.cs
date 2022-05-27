@@ -51,7 +51,7 @@ public class GameMaster : MonoBehaviour
 			if (Physics.Raycast(ray, out RaycastHit hit))
 			{
 				// Check if the mouse was clicked over a UI element
-				if (!EventSystem.current.IsPointerOverGameObject())
+				if (!IsPointerOverUIObject())
 				{
 					if (spawnedFurniturePieces[currentPiece] == null)
 					{
@@ -64,6 +64,15 @@ public class GameMaster : MonoBehaviour
 				}
 			}
 		}
+	}
+
+	private bool IsPointerOverUIObject()
+	{
+		PointerEventData eventDataCurrentPosition = new PointerEventData(EventSystem.current);
+		eventDataCurrentPosition.position = new Vector2(Input.mousePosition.x, Input.mousePosition.y);
+		List<RaycastResult> results = new List<RaycastResult>();
+		EventSystem.current.RaycastAll(eventDataCurrentPosition, results);
+		return results.Count > 0;
 	}
 
 	// Start is called before the first frame update
