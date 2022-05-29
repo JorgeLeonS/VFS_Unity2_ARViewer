@@ -77,11 +77,13 @@ public class GameMaster : MonoBehaviour
 						}else if(hit.collider.tag == "InteractablePiece")
                         {
 							currentObject = hit.collider.transform.gameObject;
-							//Debug.Log(currentObject);
-							//Debug.Log(currentObject.GetComponent(typeof (Outline)));
-							//currentObject..GetComponent<Outline>().enabled = true;
-							//hit.collider.transform.position = hit.point;
-                        }else if(!isSpawnModeOn && hit.collider.tag == "Plane")
+                            //hit.collider.transform.gameObject.GetComponent<Outline>().enabled = true;
+                            //Debug.Log(currentObject);
+                            //Debug.Log(currentObject.GetComponent(typeof (Outline)));
+                            //currentObject..GetComponent<Outline>().enabled = true;
+                            //hit.collider.transform.position = hit.point;
+                        }
+						else if(!isSpawnModeOn && hit.collider.tag == "Plane")
                         {
 							currentObject.transform.position = hit.point;
                         }

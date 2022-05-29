@@ -27,7 +27,8 @@ using System.Collections.Generic;
 using UnityEngine.Rendering;
 using UnityEngine.XR;
 
-
+namespace cakeslice
+{
 	[DisallowMultipleComponent]
 	[RequireComponent(typeof(Camera))]
 	/* [ExecuteInEditMode] */
@@ -465,4 +466,4 @@ using UnityEngine.XR;
 		public void RemoveOutline(Outline outline)
 			 => outlines.Remove(outline);
 	}
-
+}

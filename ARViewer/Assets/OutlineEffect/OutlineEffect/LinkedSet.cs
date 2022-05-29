@@ -1,7 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 
-
+namespace cakeslice
+{
     /// <summary>
     /// A collection with the fast iteration time of a List and the no-duplicates and fast Remove/Contains time of a HashSet.
     /// </summary>
@@ -72,5 +73,5 @@ using System.Collections.Generic;
 		System.Collections.IEnumerator System.Collections.IEnumerable.GetEnumerator()
 		    => list.GetEnumerator();
 	}
-
+}
 
