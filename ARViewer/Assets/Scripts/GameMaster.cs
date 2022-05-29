@@ -5,21 +5,29 @@ using UnityEngine.EventSystems;
 
 public class GameMaster : MonoBehaviour
 {
-	public Transform target;
+	[HideInInspector]
 	public GameObject objectToSpawn;
 
-	private GameObject spawnedObject;
-	private Vector2 touchPos;
+	[HideInInspector]
+	public int currentPieceNumber;
+	[HideInInspector]
+	public GameObject currentObject;
+	//private Vector2 touchPos;
 
     public List<GameObject> furniturePieces;
     public List<GameObject> spawnedFurniturePieces;	
-	public int currentPiece;
+
+	[HideInInspector]
+	public bool isDeleteModeOn;
+	[HideInInspector]
+	public bool isSpawnModeOn;
+	[HideInInspector]
+	public bool hasAPieceBeenSpawned = false;
 
 	// Update is called once per frame
 	private void Update()
 	{
 		bool isPressing = false;
-
 		Vector3 pressPosition = Vector3.zero;
 
 #if UNITY_ANDROID || UNITY_IOS
@@ -30,7 +38,8 @@ public class GameMaster : MonoBehaviour
 
 			pressPosition = touch.position;
 			isPressing = true;
-		}
+        }
+
 #endif
 		// This *will* work on mobile, but gives you the *average* touch, which
 		// may not be desirable (and will not allow for multi-touch).
@@ -41,7 +50,8 @@ public class GameMaster : MonoBehaviour
 		{
 			pressPosition = Input.mousePosition;
 			isPressing = true;
-		}
+        }
+
 #endif
 
 		if (isPressing)
@@ -50,22 +60,45 @@ public class GameMaster : MonoBehaviour
 
 			if (Physics.Raycast(ray, out RaycastHit hit))
 			{
-				// Check if the mouse was clicked over a UI element
+				// Check if the mouse was clicked over a UI element	
 				if (!IsPointerOverUIObject())
 				{
-					if (spawnedFurniturePieces[currentPiece] == null)
-					{
-						spawnedFurniturePieces[currentPiece] = Instantiate(furniturePieces[currentPiece], hit.point, Quaternion.identity);
-					}
-					else if (hit.collider.tag == "Plane")
-					{
-						spawnedFurniturePieces[currentPiece].transform.position = hit.point;
+                    if (isDeleteModeOn && hit.collider.tag == "InteractablePiece")
+                    {
+						Destroy(hit.collider.gameObject);
+                    }
+                    else if(!isDeleteModeOn)
+                    {
+                        if (isSpawnModeOn && hit.collider.tag == "Plane" && !hasAPieceBeenSpawned)
+                        {
+							//spawnedFurniturePieces[currentPieceNumber] = Instantiate(furniturePieces[currentPieceNumber], hit.point, Quaternion.identity);
+							Instantiate(furniturePieces[currentPieceNumber], hit.point, Quaternion.identity);
+							hasAPieceBeenSpawned = true;
+						}else if(hit.collider.tag == "InteractablePiece")
+                        {
+							currentObject = hit.collider.transform.gameObject;
+							//Debug.Log(currentObject);
+							//Debug.Log(currentObject.GetComponent(typeof (Outline)));
+							//currentObject..GetComponent<Outline>().enabled = true;
+							//hit.collider.transform.position = hit.point;
+                        }else if(!isSpawnModeOn && hit.collider.tag == "Plane")
+                        {
+							currentObject.transform.position = hit.point;
+                        }
 					}
 				}
 			}
 		}
 	}
 
+	public void AssignCurrentPiece(int pieceNumber)
+    {
+		currentPieceNumber = pieceNumber;
+		objectToSpawn = furniturePieces[pieceNumber];
+	}
+
+	// Mehtod to avoid conflict when clicking on UI on mobile
+	// From: https://answers.unity.com/questions/1115464/ispointerovergameobject-not-working-with-touch-inp.html
 	private bool IsPointerOverUIObject()
 	{
 		PointerEventData eventDataCurrentPosition = new PointerEventData(EventSystem.current);
@@ -78,6 +111,7 @@ public class GameMaster : MonoBehaviour
 	// Start is called before the first frame update
 	void Start()
 	{
+		isSpawnModeOn = true;
 		Debug.Log(furniturePieces.Count);
 		spawnedFurniturePieces = new List<GameObject>(furniturePieces.Count);
         for (int i = 0; i < spawnedFurniturePieces.Capacity; i++)
