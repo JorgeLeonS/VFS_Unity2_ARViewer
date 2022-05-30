@@ -20,6 +20,9 @@ public class MenuInteraction : MonoBehaviour
     public GameObject NewObjectScrollSection;
     public GameObject InSceneScrollSection;
 
+    public Button RotateRightButton;
+    public Button RotateLeftButton;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -40,6 +43,11 @@ public class MenuInteraction : MonoBehaviour
             ShowHideButton.GetComponentInChildren<Text>().text = "Show menu";
             FindObjectOfType<GameMaster>().isSpawnModeOn = false;
             isMenuEnabled = false;
+
+            DeleteButton.interactable = true;
+
+            RotateRightButton.interactable = true;
+            RotateLeftButton.interactable = true;
         }
         else
         {
@@ -47,6 +55,14 @@ public class MenuInteraction : MonoBehaviour
             ShowHideButton.GetComponentInChildren<Text>().text = "Hide menu";
             FindObjectOfType<GameMaster>().isSpawnModeOn = true;
             isMenuEnabled = true;
+
+            DeleteButton.GetComponentInChildren<Text>().text = "Delete Off";
+            DeleteButton.interactable = false;
+            FindObjectOfType<GameMaster>().isDeleteModeOn = false;
+            isDeleteModeOn = false;
+
+            RotateRightButton.interactable = false;
+            RotateLeftButton.interactable = false;
         }
     }
 

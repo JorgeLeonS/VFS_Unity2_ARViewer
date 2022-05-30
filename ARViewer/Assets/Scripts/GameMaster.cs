@@ -12,7 +12,7 @@ public class GameMaster : MonoBehaviour
 	public int currentPieceNumber;
 	[HideInInspector]
 	public GameObject currentObject;
-	//private Vector2 touchPos;
+	private GameObject pastObject;
 
     public List<GameObject> furniturePieces;
     public List<GameObject> spawnedFurniturePieces;	
@@ -76,13 +76,16 @@ public class GameMaster : MonoBehaviour
 							hasAPieceBeenSpawned = true;
 						}else if(hit.collider.tag == "InteractablePiece")
                         {
+                            if (currentObject != null)
+                            {
+								currentObject.GetComponent<cakeslice.Outline>().enabled = false;
+							}
 							currentObject = hit.collider.transform.gameObject;
-                            //hit.collider.transform.gameObject.GetComponent<Outline>().enabled = true;
-                            //Debug.Log(currentObject);
-                            //Debug.Log(currentObject.GetComponent(typeof (Outline)));
-                            //currentObject..GetComponent<Outline>().enabled = true;
-                            //hit.collider.transform.position = hit.point;
-                        }
+							currentObject.GetComponent<cakeslice.Outline>().enabled = true;
+                        }else if(hit.collider.tag == "InteractablePiece" && pastObject!=currentObject)
+                        {
+							pastObject.GetComponent<cakeslice.Outline>().enabled = false;
+						}
 						else if(!isSpawnModeOn && hit.collider.tag == "Plane")
                         {
 							currentObject.transform.position = hit.point;
