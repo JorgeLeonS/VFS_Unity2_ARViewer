@@ -99,6 +99,14 @@ public class MenuInteraction : MonoBehaviour
     }
 
     #region Buttons functions for furnitture pieces
+
+    public void GetBedSingle()
+    {
+        Debug.Log("Cube");
+        FindObjectOfType<GameMaster>().hasAPieceBeenSpawned = false;
+        FindObjectOfType<GameMaster>().AssignCurrentPiece(2);
+    }
+
     public void GetCube()
     {
         Debug.Log("Cube");

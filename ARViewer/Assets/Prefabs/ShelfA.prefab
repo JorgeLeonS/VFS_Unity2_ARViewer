@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &1669307439221792364
+--- !u!1 &7592503691116251612
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,47 +8,47 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 2044989274784990422}
-  - component: {fileID: 3156629148215282547}
-  - component: {fileID: 876634254360248249}
-  - component: {fileID: 2011978273297687347}
-  - component: {fileID: 2011978273297687344}
+  - component: {fileID: 7067886477201625958}
+  - component: {fileID: 6177239773710441667}
+  - component: {fileID: 8240744617293391881}
+  - component: {fileID: 7321890031329068320}
+  - component: {fileID: 7321890031329068323}
   m_Layer: 0
-  m_Name: Chair
+  m_Name: ShelfA
   m_TagString: InteractablePiece
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &2044989274784990422
+--- !u!4 &7067886477201625958
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1669307439221792364}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_GameObject: {fileID: 7592503691116251612}
+  m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -0, y: 0, z: 0}
   m_LocalScale: {x: 40, y: 40, z: 40}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!33 &3156629148215282547
+--- !u!33 &6177239773710441667
 MeshFilter:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1669307439221792364}
-  m_Mesh: {fileID: -6264831526926562434, guid: 7356d2d28ffe7734d9f2dcfe1a85f68f, type: 3}
---- !u!23 &876634254360248249
+  m_GameObject: {fileID: 7592503691116251612}
+  m_Mesh: {fileID: 5058793259010734706, guid: 6a5169113c1eab540922ced6b2860f20, type: 3}
+--- !u!23 &8240744617293391881
 MeshRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1669307439221792364}
+  m_GameObject: {fileID: 7592503691116251612}
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
@@ -61,9 +61,8 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 129893b782214974cb206c029d7646ad, type: 2}
-  - {fileID: 2100000, guid: 5782dd9610117f54fa8e49211562fd99, type: 2}
-  - {fileID: -1362402942781197322, guid: 7356d2d28ffe7734d9f2dcfe1a85f68f, type: 3}
+  - {fileID: 2100000, guid: 268a6f69162066249a3f01b9d474a803, type: 2}
+  - {fileID: 2100000, guid: a21405751d09cce4581a0b677f126eee, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -85,29 +84,29 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!65 &2011978273297687347
+--- !u!65 &7321890031329068320
 BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1669307439221792364}
+  m_GameObject: {fileID: 7592503691116251612}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.011812784, y: 0.026088355, z: 0.012698408}
-  m_Center: {x: -0.000080353115, y: 0.012934993, z: 0.00045391754}
---- !u!114 &2011978273297687344
+  m_Size: {x: 0.016007818, y: 0.014634058, z: 0.0063431547}
+  m_Center: {x: -0.0000000023283064, y: 0.007317029, z: 0}
+--- !u!114 &7321890031329068323
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1669307439221792364}
-  m_Enabled: 0
+  m_GameObject: {fileID: 7592503691116251612}
+  m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fbf3575480402db40813e763382412fb, type: 3}
+  m_Script: {fileID: 11500000, guid: c57fcd9582a6e724e808a1b34b5f0605, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   color: 3
