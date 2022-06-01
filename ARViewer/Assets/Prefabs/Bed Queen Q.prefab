@@ -19,7 +19,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &3857970712535675616
 Transform:
   m_ObjectHideFlags: 0
@@ -27,7 +27,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4522057406766442586}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -7.609876e-10, y: 0.0011270761, z: -0.0000000042056567}
   m_LocalScale: {x: 40, y: 40, z: 40}
   m_Children: []
@@ -63,7 +63,7 @@ MeshRenderer:
   m_Materials:
   - {fileID: 5974482269562151211, guid: 9b73e7cd6a8b4754e9cd2f147cae10a7, type: 3}
   - {fileID: 201255894595062827, guid: 9b73e7cd6a8b4754e9cd2f147cae10a7, type: 3}
-  - {fileID: 2100000, guid: 268a6f69162066249a3f01b9d474a803, type: 2}
+  - {fileID: 2021541250585427962, guid: 9b73e7cd6a8b4754e9cd2f147cae10a7, type: 3}
   - {fileID: -5146097312728409892, guid: 9b73e7cd6a8b4754e9cd2f147cae10a7, type: 3}
   - {fileID: -877105410239189381, guid: 9b73e7cd6a8b4754e9cd2f147cae10a7, type: 3}
   - {fileID: -8925526553881525508, guid: 9b73e7cd6a8b4754e9cd2f147cae10a7, type: 3}

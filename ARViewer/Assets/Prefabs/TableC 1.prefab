@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &1284968552205527678
+--- !u!1 &4763608210938800921
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,47 +8,47 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 1918235179662602436}
-  - component: {fileID: 3256431485514514273}
-  - component: {fileID: 780772445952773035}
-  - component: {fileID: 2095380845443356466}
-  - component: {fileID: 2095380845443356461}
+  - component: {fileID: 5282841940240658851}
+  - component: {fileID: 9151234539289017862}
+  - component: {fileID: 6420796190946462412}
+  - component: {fileID: 5682088884287641163}
+  - component: {fileID: 5682088884287641162}
   m_Layer: 0
-  m_Name: TableC
+  m_Name: TableC 1
   m_TagString: InteractablePiece
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
---- !u!4 &1918235179662602436
+  m_IsActive: 1
+--- !u!4 &5282841940240658851
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1284968552205527678}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_GameObject: {fileID: 4763608210938800921}
+  m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -0, y: 0, z: 0}
   m_LocalScale: {x: 40, y: 40, z: 40}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!33 &3256431485514514273
+--- !u!33 &9151234539289017862
 MeshFilter:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1284968552205527678}
+  m_GameObject: {fileID: 4763608210938800921}
   m_Mesh: {fileID: -7667798883064298220, guid: 7864980a6b6abde48871525fd7b2064b, type: 3}
---- !u!23 &780772445952773035
+--- !u!23 &6420796190946462412
 MeshRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1284968552205527678}
+  m_GameObject: {fileID: 4763608210938800921}
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
@@ -61,11 +61,11 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: a21405751d09cce4581a0b677f126eee, type: 2}
-  - {fileID: 2100000, guid: 268a6f69162066249a3f01b9d474a803, type: 2}
-  - {fileID: -1976799459468813334, guid: 7864980a6b6abde48871525fd7b2064b, type: 3}
-  - {fileID: 8368722655750445499, guid: 7864980a6b6abde48871525fd7b2064b, type: 3}
-  - {fileID: 8748892135801146194, guid: 7864980a6b6abde48871525fd7b2064b, type: 3}
+  - {fileID: 2100000, guid: 9ccf17c2b32c2a94c9d370826abb202d, type: 2}
+  - {fileID: 2100000, guid: 379c5e111194e4a47a499e441e72d9aa, type: 2}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 2100000, guid: 9ccf17c2b32c2a94c9d370826abb202d, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -87,26 +87,26 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!65 &2095380845443356466
+--- !u!65 &5682088884287641163
 BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1284968552205527678}
+  m_GameObject: {fileID: 4763608210938800921}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 0.027355209, y: 0.015607, z: 0.015403388}
   m_Center: {x: 0.0000000013969839, y: 0.0078035, z: 2.3283064e-10}
---- !u!114 &2095380845443356461
+--- !u!114 &5682088884287641162
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1284968552205527678}
+  m_GameObject: {fileID: 4763608210938800921}
   m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fbf3575480402db40813e763382412fb, type: 3}
