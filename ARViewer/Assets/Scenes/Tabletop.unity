@@ -6452,7 +6452,7 @@ GameObject:
   - component: {fileID: 1816237893}
   - component: {fileID: 1816237892}
   m_Layer: 5
-  m_Name: ConeButton
+  m_Name: ChairButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
