@@ -23,6 +23,9 @@ public class MenuInteraction : MonoBehaviour
     public Button RotateRightButton;
     public Button RotateLeftButton;
 
+    public GameObject OpenEyeIcon;
+    public GameObject ClosedEyeIcon;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -31,7 +34,7 @@ public class MenuInteraction : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+
     }
 
     public void ShowHideMenu()
@@ -39,6 +42,9 @@ public class MenuInteraction : MonoBehaviour
         //isMenuEnabled ? ScrollView.gameObject.SetActive(isMenkuEnabled);
         if (isMenuEnabled)
         {
+            OpenEyeIcon.gameObject.SetActive(true);
+            ClosedEyeIcon.gameObject.SetActive(false);
+
             SelectionPanel.gameObject.SetActive(false);
             ShowHideButton.GetComponentInChildren<Text>().text = "Show menu";
             FindObjectOfType<GameMaster>().isSpawnModeOn = false;
@@ -51,6 +57,9 @@ public class MenuInteraction : MonoBehaviour
         }
         else
         {
+            OpenEyeIcon.SetActive(false);
+            ClosedEyeIcon.SetActive(true);
+
             SelectionPanel.gameObject.SetActive(true);
             ShowHideButton.GetComponentInChildren<Text>().text = "Hide menu";
             FindObjectOfType<GameMaster>().isSpawnModeOn = true;
@@ -100,24 +109,60 @@ public class MenuInteraction : MonoBehaviour
 
     #region Buttons functions for furnitture pieces
 
-    public void GetBedSingle()
+    public void GetChair()
     {
-        Debug.Log("Cube");
         FindObjectOfType<GameMaster>().hasAPieceBeenSpawned = false;
-        FindObjectOfType<GameMaster>().AssignCurrentPiece(2);
+        FindObjectOfType<GameMaster>().AssignCurrentPiece(0);
     }
 
-    public void GetCube()
+    public void GetBedS()
     {
         Debug.Log("Cube");
         FindObjectOfType<GameMaster>().hasAPieceBeenSpawned = false;
         FindObjectOfType<GameMaster>().AssignCurrentPiece(1);
     }
-    public void GetCone()
+    public void GetBedQ()
     {
         Debug.Log("Cone");
         FindObjectOfType<GameMaster>().hasAPieceBeenSpawned = false;
-        FindObjectOfType<GameMaster>().AssignCurrentPiece(0);
+        FindObjectOfType<GameMaster>().AssignCurrentPiece(2);
     }
-    #endregion
+
+    public void GetShelfA()
+    {
+        FindObjectOfType<GameMaster>().hasAPieceBeenSpawned = false;
+        FindObjectOfType<GameMaster>().AssignCurrentPiece(3);
+    }
+
+    public void GetShelfB()
+    {
+        FindObjectOfType<GameMaster>().hasAPieceBeenSpawned = false;
+        FindObjectOfType<GameMaster>().AssignCurrentPiece(4);
+    }
+
+    public void GetShelfC()
+    {
+        FindObjectOfType<GameMaster>().hasAPieceBeenSpawned = false;
+        FindObjectOfType<GameMaster>().AssignCurrentPiece(5);
+    }
+
+    public void GetTableA()
+    {
+        FindObjectOfType<GameMaster>().hasAPieceBeenSpawned = false;
+        FindObjectOfType<GameMaster>().AssignCurrentPiece(6);
+    }
+
+    public void GetTableB()
+    {
+        FindObjectOfType<GameMaster>().hasAPieceBeenSpawned = false;
+        FindObjectOfType<GameMaster>().AssignCurrentPiece(7);
+    }
+
+    public void GetTableC()
+    {
+        FindObjectOfType<GameMaster>().hasAPieceBeenSpawned = false;
+        FindObjectOfType<GameMaster>().AssignCurrentPiece(8);
+    }
 }
+
+    #endregion
