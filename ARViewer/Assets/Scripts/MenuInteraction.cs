@@ -26,6 +26,10 @@ public class MenuInteraction : MonoBehaviour
     public GameObject OpenEyeIcon;
     public GameObject ClosedEyeIcon;
 
+    public GameObject OpenDeleteIcon;
+    public GameObject CloseDeleteIcon;
+    public GameObject HiddenDeleteIcon;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -42,8 +46,14 @@ public class MenuInteraction : MonoBehaviour
         //isMenuEnabled ? ScrollView.gameObject.SetActive(isMenkuEnabled);
         if (isMenuEnabled)
         {
+            //Apear the open eye and the unselectable trash can
             OpenEyeIcon.gameObject.SetActive(true);
             ClosedEyeIcon.gameObject.SetActive(false);
+
+            OpenDeleteIcon.gameObject.SetActive(false);
+            HiddenDeleteIcon.gameObject.SetActive(false);
+            CloseDeleteIcon.gameObject.SetActive(true);
+
 
             SelectionPanel.gameObject.SetActive(false);
             ShowHideButton.GetComponentInChildren<Text>().text = "Show menu";
@@ -57,8 +67,13 @@ public class MenuInteraction : MonoBehaviour
         }
         else
         {
-            OpenEyeIcon.SetActive(false);
-            ClosedEyeIcon.SetActive(true);
+            OpenEyeIcon.gameObject.SetActive(false);
+            ClosedEyeIcon.gameObject.SetActive(true);
+
+            HiddenDeleteIcon.gameObject.SetActive(true);
+            CloseDeleteIcon.gameObject.SetActive(false);
+            OpenDeleteIcon.gameObject.SetActive(false);
+
 
             SelectionPanel.gameObject.SetActive(true);
             ShowHideButton.GetComponentInChildren<Text>().text = "Hide menu";
@@ -79,12 +94,18 @@ public class MenuInteraction : MonoBehaviour
     {
         if (isDeleteModeOn)
         {
+            OpenDeleteIcon.SetActive(false);
+            CloseDeleteIcon.SetActive(true);
+
             DeleteButton.GetComponentInChildren<Text>().text = "Delete Off";
             FindObjectOfType<GameMaster>().isDeleteModeOn = false;
             isDeleteModeOn = false;
         }
         else
         {
+            OpenDeleteIcon.SetActive(true);
+            CloseDeleteIcon.SetActive(false);
+
             DeleteButton.GetComponentInChildren<Text>().text = "Delete On";
             FindObjectOfType<GameMaster>().isDeleteModeOn = true;
             isDeleteModeOn = true;
