@@ -30,6 +30,16 @@ public class MenuInteraction : MonoBehaviour
     public GameObject CloseDeleteIcon;
     public GameObject HiddenDeleteIcon;
 
+    public GameObject ChairButtonOutine;
+    public GameObject SingleBedButtonOutine;
+    public GameObject QueenBedButtonOutine;
+    public GameObject ShelfAButtonOutine;
+    public GameObject ShelfBButtonOutine;
+    public GameObject ShelfCButtonOutine;
+    public GameObject TableAButtonOutine;
+    public GameObject TableBButtonOutine;
+    public GameObject TableCButtonOutine;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -133,6 +143,8 @@ public class MenuInteraction : MonoBehaviour
     public void GetChair()
     {
         FindObjectOfType<GameMaster>().hasAPieceBeenSpawned = false;
+        HideAllButtonOutline();
+        ChairButtonOutine.SetActive(true);
         FindObjectOfType<GameMaster>().AssignCurrentPiece(0);
     }
 
@@ -140,49 +152,78 @@ public class MenuInteraction : MonoBehaviour
     {
         Debug.Log("Cube");
         FindObjectOfType<GameMaster>().hasAPieceBeenSpawned = false;
+        HideAllButtonOutline();
+        SingleBedButtonOutine.SetActive(true);
         FindObjectOfType<GameMaster>().AssignCurrentPiece(1);
     }
     public void GetBedQ()
     {
         Debug.Log("Cone");
+        HideAllButtonOutline();
+        QueenBedButtonOutine.SetActive(true);
         FindObjectOfType<GameMaster>().hasAPieceBeenSpawned = false;
         FindObjectOfType<GameMaster>().AssignCurrentPiece(2);
     }
 
     public void GetShelfA()
     {
+        HideAllButtonOutline();
+        ShelfAButtonOutine.SetActive(true);
         FindObjectOfType<GameMaster>().hasAPieceBeenSpawned = false;
         FindObjectOfType<GameMaster>().AssignCurrentPiece(3);
     }
 
     public void GetShelfB()
     {
+        HideAllButtonOutline();
+        ShelfBButtonOutine.SetActive(true);
         FindObjectOfType<GameMaster>().hasAPieceBeenSpawned = false;
         FindObjectOfType<GameMaster>().AssignCurrentPiece(4);
     }
 
     public void GetShelfC()
     {
+        HideAllButtonOutline();
+        ShelfCButtonOutine.SetActive(true);
         FindObjectOfType<GameMaster>().hasAPieceBeenSpawned = false;
         FindObjectOfType<GameMaster>().AssignCurrentPiece(5);
     }
 
     public void GetTableA()
     {
+        HideAllButtonOutline();
+        TableAButtonOutine.SetActive(true);
         FindObjectOfType<GameMaster>().hasAPieceBeenSpawned = false;
         FindObjectOfType<GameMaster>().AssignCurrentPiece(6);
     }
 
     public void GetTableB()
     {
+        HideAllButtonOutline();
+        TableBButtonOutine.SetActive(true);
         FindObjectOfType<GameMaster>().hasAPieceBeenSpawned = false;
         FindObjectOfType<GameMaster>().AssignCurrentPiece(7);
     }
 
     public void GetTableC()
     {
+        HideAllButtonOutline();
+        TableCButtonOutine.SetActive(true);
         FindObjectOfType<GameMaster>().hasAPieceBeenSpawned = false;
         FindObjectOfType<GameMaster>().AssignCurrentPiece(8);
+    }
+
+    public void HideAllButtonOutline()
+    {
+        ChairButtonOutine.SetActive(false);
+        SingleBedButtonOutine.SetActive(false);
+        QueenBedButtonOutine.SetActive(false);
+        ShelfAButtonOutine.SetActive(false);
+        ShelfBButtonOutine.SetActive(false);
+        ShelfCButtonOutine.SetActive(false);
+        TableAButtonOutine.SetActive(false);
+        TableBButtonOutine.SetActive(false);
+        TableCButtonOutine.SetActive(false);
     }
 }
 
